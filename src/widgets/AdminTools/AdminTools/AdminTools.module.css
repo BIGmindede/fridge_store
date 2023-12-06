@@ -1,0 +1,39 @@
+.admintools {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100vh - 50px);
+    background-color: var(--sec-accent-color);
+    transition: all 0.25s ease-in-out;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0 0 2px 1px rgb(0, 39, 39);
+    overflow-x: hidden;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.admintools * {
+    color: var(--rev-accent-color);
+    user-select: none;
+}
+
+.opened {
+    width: 200px;
+}
+
+.closed {
+    width: 50px;
+}
+
+.admintools > div {
+    display: grid;
+    grid-template-columns: 50px 150px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+hr {
+    border: 0.5px solid var(--rev-accent-color);
+}

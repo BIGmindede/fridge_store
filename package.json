@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.2",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.0.2",
+    "react-router-dom": "^6.20.1",
+    "redux": "^5.0.0",
+    "universal-cookie": "^6.1.1"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.152",
+    "@iconify/react": "^4.1.1",
+    "unplugin-icons": "^0.18.1",
+    "vite": "^1.0.0-rc.13",
+    "vite-plugin-react": "^4.0.0"
+  }
+}

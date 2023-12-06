@@ -1,0 +1,63 @@
+:root {
+  --accent-color: #0b132b;
+  --sec-accent-color: #1C2541;
+  --rev-accent-color: aliceblue;
+  --transp-bg: #3A506B25;
+  --content-bg: #d5d5d5;
+  --data-block-bg: #5BC0BE;
+}
+
+@font-face {
+  font-family: "Murecho Extra Light";
+  src: url(./Fonts/Murecho-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: "Murecho Light";
+  src: url(./Fonts/Murecho-Light.ttf);
+}
+
+@font-face {
+  font-family: "Murecho Medium";
+  src: url(./Fonts/Murecho-Medium.ttf);
+}
+
+
+body {
+  width: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: Murecho Light;
+}
+
+.App {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  width: 100%;
+}
+
+.App div[class*="page"] {
+  display: flex;
+  flex-shrink: 2;
+  flex-grow: 1;
+  background-color: var(--content-bg);
+  min-height: calc(100vh - 50px);
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
