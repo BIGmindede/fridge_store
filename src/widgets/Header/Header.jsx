@@ -29,8 +29,6 @@ const Header = () => {
                 {auth
                     ? <>
                         <span onClick={handleLogout}>Logout</span>
-                        <span>/</span>
-                        <Link to='/register'>Register</Link>
                     </>
                     : <>
                         <Link to='/register'>Register</Link>
