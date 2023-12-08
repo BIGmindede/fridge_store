@@ -1,7 +1,6 @@
 .admintools {
     display: flex;
     flex-wrap: wrap;
-    height: calc(100vh - 50px);
     background-color: var(--sec-accent-color);
     transition: all 0.25s ease-in-out;
     flex-direction: column;

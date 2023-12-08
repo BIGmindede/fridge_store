@@ -1,25 +1,10 @@
 import React from 'react'
 import { List } from '../../widgets/List'
+import { goodsApi } from '../../redux/services/GoodsService'
 
 const MainPage = () => {
 
-  const data = [
-    {
-      "name": "name1",
-      "quantity": 10,
-      "warehouseId": 2
-    },
-    {
-      "name": "name2",
-      "quantity": 10,
-      "warehouseId": 2
-    },
-    {
-      "name": "name3",
-      "quantity": 10,
-      "warehouseId": 2
-    },
-  ]
+  const { data } = goodsApi.useGetAllQuery()
 
   return (
     <div className='main-page'>

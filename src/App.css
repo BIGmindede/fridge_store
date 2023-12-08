@@ -56,6 +56,7 @@ main {
   background-color: var(--content-bg);
   min-height: calc(100vh - 50px);
   justify-content: center;
+  position: relative;
 }
 
 a {

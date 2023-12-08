@@ -10,7 +10,7 @@ const List = ({data, type, format}) => {
                 <h1>{type}</h1><hr />
             </div>
             <div>
-                {data.map((item, index) =>
+                {data && data.map((item, index) =>
                     <div>
                         <ListItem key={index} type={type}
                             data={format({

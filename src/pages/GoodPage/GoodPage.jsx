@@ -1,30 +1,24 @@
 import React from 'react'
 import { List } from '../../widgets/List'
+import { goodsApi } from '../../redux/services/GoodsService'
 
 const GoodPage = () => {
 
-  const data = [
-    {
-      "name": "name1",
-      "quantity": 10,
-      "warehouseId": 2
-    },
-    {
-      "name": "name2",
-      "quantity": 10,
-      "warehouseId": 2
-    },
-    {
-      "name": "name3",
-      "quantity": 10,
-      "warehouseId": 2
-    },
-  ]
+  const { data } = goodsApi.useGetAllQuery()
+  
+    const formatData = (data) => {
+      return {
+        id: data.id,
+        name: data.name + " ID: " + data.id,
+        quantity: data.quantity,
+        warehouseId: data.warehouseId
+      }
+    }
 
   return (
     <div className='good-page'>
       {/* <AddForm /> */}
-      <List data={data} type={"Fridges"} format={(data) => data}/>
+      <List data={data} type={"Fridges"} format={formatData}/>
     </div>
   )
 }

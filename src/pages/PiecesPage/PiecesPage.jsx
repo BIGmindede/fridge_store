@@ -1,10 +1,10 @@
 import React from 'react'
 import List from '../../widgets/List/List/List'
-import { detailsApi } from '../../redux/services/DetailsService'
+import { piecesApi } from '../../redux/services/PiecesService'
 
-const DetailsPage = () => {
+const PiecesPage = () => {
 
-    const { data } = detailsApi.useGetAllQuery()
+    const { data } = piecesApi.useGetAllQuery()
 
     const formatData = (singleData) => {
       return {
@@ -18,9 +18,9 @@ const DetailsPage = () => {
     return (
       <div className='details-page'>
         {/* <AddForm /> */}
-        <List data={data} type={"Details"} format={formatData}/>
+        <List data={data} type={"Pieces"} format={formatData}/>
       </div>
     )
 }
 
-export default DetailsPage
+export default PiecesPage

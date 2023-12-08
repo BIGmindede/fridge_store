@@ -1,23 +1,15 @@
 import React from 'react'
 import { List } from '../../widgets/List'
+import { employeesApi } from '../../redux/services/EmployeesService'
 
 const EmployeesPage = () => {
 
-  const data = [
-    {
-      "firstName": "mercedes rs6",
-      "secondName": "mercedes rs6",
-      "middleName": "mashina",
-      "phoneNumber": "+79181848138",
-      "fullName": "FullName",
-      "warehouseId": 2,
-      "specId": 3
-    },
-  ]
+  const { data } = employeesApi.useGetAllQuery()
 
   const formatData = (data) => {
     return {
-      name: data.firstName + " " + data.secondName + " " + data.middleName,
+      id: data.id,
+      name: data.secondName + " " + data.firstName + " " + data.middleName + " ID: " + data.id,
       phoneNumber: data.phoneNumber,
       fullName: data.fullName,
       warehouseId: data.warehouseId,

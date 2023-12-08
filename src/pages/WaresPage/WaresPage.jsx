@@ -1,27 +1,17 @@
 import React from 'react'
 import List from '../../widgets/List/List/List'
+import { waresApi } from '../../redux/services/WarehousesSrvice'
 
 const WaresPage = () => {
 
-    const data = [
-      {
-        "firstName": "mercedes rs6",
-        "secondName": "mercedes rs6",
-        "middleName": "mashina",
-        "phoneNumber": "+79181848138",
-        "fullName": "FullName",
-        "warehouseId": 2,
-        "specId": 3
-      },
-    ]
+    const { data } = waresApi.useGetAllQuery()
   
     const formatData = (data) => {
       return {
-        name: data.firstName + " " + data.secondName + " " + data.middleName,
-        phoneNumber: data.phoneNumber,
-        fullName: data.fullName,
-        warehouseId: data.warehouseId,
-        specId: data.specId
+        id: data.id,
+        name: "warehouse ID: " + data.id,
+        warehouse_information: data.warehouse_information,
+        details_information: data.details_information
       }
     }
   

@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
-import MainPage from './pages/MainPage/MainPage'
-import Header from './widgets/Header/Header'
 import { useLayoutEffect } from 'react'
+import Cookies from 'universal-cookie'
+import { jwtDecode } from 'jwt-decode'
+import Header from './widgets/Header/Header'
 import { AdminTools } from './widgets/AdminTools/AdminTools'
+import MainPage from './pages/MainPage/MainPage'
 import EmployeesPage from './pages/EmployeesPage/EmployeesPage'
 import WaresPage from './pages/WaresPage/WaresPage'
 import DetailsPage from './pages/DetailsPage/DetailsPage'
 import GoodPage from './pages/GoodPage/GoodPage'
 import AuthPage from './pages/AuthPage/AuthPage'
+import CustomersPage from './pages/CustomersPage/CustomersPage'
 import { authApi } from './redux/services/AuthService'
-import Cookies from 'universal-cookie'
-import { jwtDecode } from 'jwt-decode'
+import './App.css'
+import PiecesPage from './pages/PiecesPage/PiecesPage'
 
 
 function App() {
@@ -21,21 +23,23 @@ function App() {
     const authCookie = new Cookies()
 
     useLayoutEffect(() => {
-        // Добавить проверку на роль авторизованного пользователя
-        // админ тулы - только для роли админа
-        const token = authCookie.get("token")
-        
+        const token = authCookie.get("jwt")
+        if (token) {
+          const { role } = jwtDecode(token)
+          console.log(role)
+          if (role === "ADMIN") setEnAdmTools(true)
+        }
+      // test only line
+      setEnAdmTools(true)
     }, [])
 
     const [authenticate] = authApi.useAuthenticateMutation()
     const [register] = authApi.useRegisterMutation()
 
     const registerPageFields = {
-      "name": { type: 'text', placeholder: 'Fullname'},
+      "username": { type: 'text', placeholder: 'username'},
       "email": { type: 'email', placeholder: 'E-mail'},
-      "telephone": { type: 'tel', placeholder: 'Telephone'},
       "password": { type: 'password', placeholder: 'Password'},
-      "birthDate": { type: 'date', placeholder: 'XXXX-XX-XX'}
     }
 
     const loginPageFields = {
@@ -64,9 +68,11 @@ function App() {
                 endpoint={authenticate}
                 title='Login'
                 fields={loginPageFields}/>} />
+            <Route path='/customers' element={<CustomersPage/>} />
             <Route path='/employees' element={<EmployeesPage/>} />
             <Route path='/wares' element={<WaresPage/>} />
             <Route path='/fridges' element={<GoodPage/>} />
+            <Route path='/pieces' element={<PiecesPage/>} />
             <Route path='/details' element={<DetailsPage/>} />
           </Routes>
         </main>

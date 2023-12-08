@@ -18,9 +18,14 @@ const AdminTools = () => {
       />
       <hr />
       <ToolSection
+        action={() => navigate('/customers')}
+        text="Customers"
+        icon="bxs:shopping-bags"
+      />
+      <ToolSection
         action={() => navigate('/employees')}
         text="Employees"
-        icon="fa-regular:address-card"
+        icon="fa6-solid:address-card"
       />
       <ToolSection
         action={() => navigate('/wares')}
@@ -30,12 +35,17 @@ const AdminTools = () => {
       <ToolSection
         action={() => navigate('/fridges')}
         text="Fridges"
-        icon="carbon:temperature-frigid"
+        icon="bxs:fridge"
+      />
+      <ToolSection
+        action={() => navigate('/pieces')}
+        text="Pieces"
+        icon="fa-solid:cogs"
       />
       <ToolSection
         action={() => navigate('/details')}
         text="Details"
-        icon="fa-solid:cogs"
+        icon="fa-solid:cog"
       />
     </div>
   )
