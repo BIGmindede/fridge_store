@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { List } from '../../widgets/List'
 import { employeesApi } from '../../redux/services/EmployeesService'
 
 const EmployeesPage = () => {
 
+  const [items, setItems] = useState([])
+
   const { data } = employeesApi.useGetAllQuery()
+
+  useEffect(() => {
+    setItems(data)
+  }, [data])
 
   const formatData = (data) => {
     return {
@@ -20,7 +26,7 @@ const EmployeesPage = () => {
   return (
     <div className='employees-page'>
       {/* <AddForm /> */}
-      <List data={data} type={"Employees"} format={formatData}/>
+      <List data={items} type={"Employees"} format={formatData}/>
     </div>
   )
 }

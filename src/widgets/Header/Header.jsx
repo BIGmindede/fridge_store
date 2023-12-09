@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import cls from './Header.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'universal-cookie'
 
 const Header = () => {
 
     const cookies = new Cookies()
-
+    const navigate = useNavigate()
     const [auth, setAuth] = useState(false)
 
     const handleLogout = () => {
         if (cookies.get("jwt")) {
             cookies.remove("jwt")
             setAuth(false)
+            navigate('/')
         }
     }
 

@@ -17,11 +17,11 @@ export const goodsApi = createApi({
                 })
             }
         }),
-        getById: builder.query({
-            query: (id) => {
+        getAll: builder.query({
+            query: (sort) => {
                 const cookies = new Cookies()
                 return ({
-                    url: `/getById/${id}`,
+                    url: `/getAll${sort}`,
                     method: "POST",
                     headers: {
                         "Authorization": "Bearer " + cookies.get("jwt")
