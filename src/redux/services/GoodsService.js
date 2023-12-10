@@ -18,10 +18,10 @@ export const goodsApi = createApi({
             }
         }),
         getAll: builder.query({
-            query: (sort) => {
+            query: (query) => {
                 const cookies = new Cookies()
                 return ({
-                    url: `/getAll${sort}`,
+                    url: `/getAll${query}`,
                     method: "POST",
                     headers: {
                         "Authorization": "Bearer " + cookies.get("jwt")

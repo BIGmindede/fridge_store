@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { List } from '../../widgets/List'
 import { goodsApi } from '../../redux/services/GoodsService'
-import cls from './MainPage.module.css'
+import Filters from '../../widgets/Filters/Filters'
 
 const MainPage = () => {
 
   const [items, setItems] = useState([])
-  const [sort, setSort] = useState("")
+  const [filters, setFilters] = useState("")
 
-  const { data } = goodsApi.useGetAllQuery(sort)
+  const { data } = goodsApi.useGetAllQuery(filters)
 
   useEffect(() => {
     setItems(data)
-  }, [data, sort])
+  }, [data, filters])
 
   return (
     <div className='main-page'>
-      <div className={cls.filters}>
-        <h1>Filters</h1>
-        <button onClick={() => setSort("")}>Clear</button>
-        <button onClick={() => setSort("/asc")}>In ascending order</button>
-        <button onClick={() => setSort("/desc")}>In descending order</button>
-      </div>
       <List data={items} type={"Fridges"} format={(data) => data}/>
+      <Filters setFilters={setFilters}></Filters>
     </div>
   )
 }

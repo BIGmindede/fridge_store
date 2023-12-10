@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { List } from '../../widgets/List'
 import { goodsApi } from '../../redux/services/GoodsService'
-import cls from './GoodPage.module.css'
+import Filters from '../../widgets/Filters/Filters'
 
 const GoodPage = () => {
 
   const [items, setItems] = useState([])
-  const [sort, setSort] = useState("")
+  const [filters, setFilters] = useState("")
 
-  const { data } = goodsApi.useGetAllQuery(sort)
+  const { data } = goodsApi.useGetAllQuery(filters)
 
   useEffect(() => {
     setItems(data)
-  }, [data, sort])
+  }, [data, filters])
 
   const formatData = (data) => {
     return {
@@ -26,13 +26,8 @@ const GoodPage = () => {
   return (
     <div className='good-page'>
       {/* <AddForm /> */}
-      <div className={cls.filters}>
-        <h1>Filters</h1>
-        <button onClick={() => setSort("")}>Clear</button>
-        <button onClick={() => setSort("/asc")}>In ascending order</button>
-        <button onClick={() => setSort("/desc")}>In descending order</button>
-      </div>
       <List data={items} type={"Fridges"} format={formatData}/>
+      <Filters setFilters={setFilters}></Filters>
     </div>
   )
 }
