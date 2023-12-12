@@ -13,38 +13,38 @@ const AdminTools = () => {
     <div className={[cls.admintools, opened ? cls.opened : cls.closed].join(" ")}>
       <ToolSection
         action={() => setOpened(!opened)}
-        text="Admin Tools"
+        text="Интерфейс админа"
         icon="fa-solid:tools"
       />
       <hr />
       <ToolSection
         action={() => navigate('/customers')}
-        text="Customers"
+        text="Покупатели"
         icon="bxs:shopping-bags"
       />
       <ToolSection
         action={() => navigate('/employees')}
-        text="Employees"
+        text="Работники"
         icon="fa6-solid:address-card"
       />
       <ToolSection
         action={() => navigate('/wares')}
-        text="Warehouses"
+        text="Склады"
         icon="fa-solid:warehouse"
       />
       <ToolSection
         action={() => navigate('/fridges')}
-        text="Fridges"
+        text="Холодильники"
         icon="bxs:fridge"
       />
       <ToolSection
         action={() => navigate('/pieces')}
-        text="Pieces"
+        text="Части"
         icon="fa-solid:cogs"
       />
       <ToolSection
         action={() => navigate('/details')}
-        text="Details"
+        text="Детали"
         icon="fa-solid:cog"
       />
     </div>

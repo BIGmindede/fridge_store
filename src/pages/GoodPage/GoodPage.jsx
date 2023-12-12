@@ -26,7 +26,7 @@ const GoodPage = () => {
   return (
     <div className='good-page'>
       {/* <AddForm /> */}
-      <List data={items} type={"Fridges"} format={formatData}/>
+      <List data={items} type={"Холодильники"} format={formatData}/>
       <Filters setFilters={setFilters}></Filters>
     </div>
   )

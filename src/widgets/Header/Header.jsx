@@ -29,12 +29,12 @@ const Header = () => {
             <div className={cls.header_module}>
                 {auth
                     ? <>
-                        <span onClick={handleLogout}>Logout</span>
+                        <span onClick={handleLogout}>Выйти</span>
                     </>
                     : <>
-                        <Link to='/register'>Register</Link>
+                        <Link to='/register'>Регистрация</Link>
                         <span>/</span>
-                        <Link to='/authenticate'>Login</Link>
+                        <Link to='/authenticate'>Вход</Link>
                     </>
                 }
 

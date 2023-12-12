@@ -7,7 +7,6 @@
 .auth-page form {
     flex-direction: column;
     align-items: center;
-    max-width: 53vh;
     min-width: 25vw;
     gap: 20px;
     background-color: var(--transp-bg);

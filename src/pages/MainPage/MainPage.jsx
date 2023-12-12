@@ -16,7 +16,7 @@ const MainPage = () => {
 
   return (
     <div className='main-page'>
-      <List data={items} type={"Fridges"} format={(data) => data}/>
+      <List data={items} type={"Холодильники"} format={(data) => data}/>
       <Filters setFilters={setFilters}></Filters>
     </div>
   )

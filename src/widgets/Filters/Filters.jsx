@@ -7,7 +7,7 @@ const Filters = ({setFilters}) => {
     const query = useRef()
 
     const handleBounds = () => {
-        setFilters(`Filtered?min=${min.current.value}&max=${ma.current.value}`)
+        setFilters(`Filtered?min=${min.current.value}&max=${max.current.value}`)
     }
 
     const handleSearch = () => {
@@ -16,20 +16,20 @@ const Filters = ({setFilters}) => {
 
     return (
         <div className={cls.filters}>
-            <h1>Filters</h1>
+            <h1>Фильтр</h1>
             <hr />
-            <button onClick={() => setFilters("")}>Clear</button>
-            <button onClick={() => setFilters("/asc")}>In ascending order</button>
-            <button onClick={() => setFilters("/desc")}>In descending order</button>
+            <button onClick={() => setFilters("")}>Отчистить</button>
+            <button onClick={() => setFilters("/asc")}>По возрастранию</button>
+            <button onClick={() => setFilters("/desc")}>По убыванию</button>
             <hr />
             <div className={cls.bounds}>
-            <input type="number" placeholder='min' ref={min}/>
-            <input type="number" placeholder='max' ref={max}/>
+            <input type="number" placeholder='мин' ref={min}/>
+            <input type="number" placeholder='макс' ref={max}/>
             </div>
-            <button onClick={handleBounds}>Filter by quantity</button>
+            <button onClick={handleBounds}>Фильтр по кол-ву</button>
             <hr />
             <input type="text" placeholder='Name' ref={query}/>
-            <button onClick={handleSearch}>Search by name</button>
+            <button onClick={handleSearch}>Поиск по имени</button>
         </div>
     )
 }
